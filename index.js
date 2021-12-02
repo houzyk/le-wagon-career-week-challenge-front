@@ -6,7 +6,7 @@ fetch(url)
     .then((data) => {
       const radios = data['radios'];
       radios.forEach((radio) => {
-        const html = `<div class="radio">
+        const html = `<div class="radio" data-name="${radio.name}">
                         <p>${radio.name}</p>
                         <p>${radio.frequency}</p>
                       </div>
@@ -21,5 +21,18 @@ fetch(url)
                         </div>
                       </div>`;
         radioMiddle.insertAdjacentHTML('beforeend', html);
+      });
+      const radiosAvailable = document.querySelectorAll('.radio');
+      const radioBottom = document.querySelector('.radio-bottom');
+      radiosAvailable.forEach((radio) => {
+        radio.addEventListener('click', (event) => {
+          event.currentTarget.nextElementSibling.classList.toggle('radio-show');
+          event.currentTarget.nextElementSibling.classList.toggle('radio-show-open');
+          if (radioBottom.querySelector('p').innerText !== "") {
+            radioBottom.querySelector('p').innerText = "";
+          } else {
+            radioBottom.querySelector('p').innerText = `Currently Playing: ${event.currentTarget.dataset.name}`;
+          }
+        });
       });
 });
