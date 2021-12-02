@@ -22,6 +22,18 @@ body {
   height: 70vh;
   width: 30vw;
   background-color: #313638;
-  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.radio-top {
+  height: 15%;
+  width: 100%;
+  background-color: #E4B363;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5rem;
 }
