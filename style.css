@@ -20,7 +20,7 @@ body {
 
 .radios {
   height: 70vh;
-  width: 30vw;
+  width: 20vw;
   background-color: #313638;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -49,13 +49,27 @@ body {
   width: 100%;
   border-bottom: hsl(197, 7%, 31%) solid 1px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .radio-show {
-  height: 20%;
+  height: 40%;
   width: 100%;
   display: none;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.radio-image {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  border: #E8E9EB solid 2px;
+  object-fit: cover;
+}
+
 
 .radio-bottom {
   height: 15%;
