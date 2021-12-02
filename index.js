@@ -24,10 +24,16 @@ fetch(url)
       });
       const radiosAvailable = document.querySelectorAll('.radio');
       const radioBottom = document.querySelector('.radio-bottom');
-      radiosAvailable.forEach((radio) => {
+      radiosAvailable.forEach((radio, radioIndex, radioArray) => {
         radio.addEventListener('click', (event) => {
           event.currentTarget.nextElementSibling.classList.toggle('radio-show');
           event.currentTarget.nextElementSibling.classList.toggle('radio-show-open');
+          radioArray.forEach((radio) => {
+            if (radio !== event.currentTarget && radio.nextElementSibling.classList.contains('radio-show-open')) {
+              radio.nextElementSibling.classList.remove('radio-show-open');
+              radio.nextElementSibling.classList.add('radio-show');
+            }
+          });
           if (radioBottom.querySelector('p').innerText !== "") {
             radioBottom.querySelector('p').innerText = "";
           } else {
